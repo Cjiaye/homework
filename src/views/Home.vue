@@ -1,19 +1,31 @@
 <template>
-  <div></div>
+  <div class="home">
+    <yangButton>默认按钮</yangButton>
+    <yangButton type="primary">成功按钮</yangButton>
+    <yangButton type="danger">危险按钮</yangButton>
+    <yangButton type="warning">警告按钮</yangButton>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeWorkHome',
-
+  name: 'Home',
   data() {
-    return {}
+    return {
+      flag: false
+    }
   },
-
-  mounted() {},
-
-  methods: {}
+  components: {
+    yangButton: () => import('../components/button/index.vue')
+  },
+  methods: {
+    handleSubmit() {
+      this.flag = true
+      setTimeout(() => {
+        console.log('123')
+        this.flag = false
+      }, 3000)
+    }
+  }
 }
 </script>
-
-<style lang="scss" scoped></style>
